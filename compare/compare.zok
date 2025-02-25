@@ -21,5 +21,10 @@ def main(private field bid1, private field bid2, private field bid3, public fiel
         position = if allBids[i] > highestBid { i } else { position };
         highestBid = if allBids[i] > highestBid { allBids[i] } else { highestBid };
     }
+
+    assert(highestBid >= bid1);
+    assert(highestBid >= bid2);
+    assert(highestBid >= bid3);
+
     return (highestBid, allHash[position]);
 }
