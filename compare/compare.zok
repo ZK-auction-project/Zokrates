@@ -1,6 +1,6 @@
 import "hashes/sha256/512bitPacked" as sha256packed;
 
-def main(private field bid1, private field bid2, private field bid3, public field[2] a, public field[2] b, public field[2] c) -> (field, field[2]){
+def main(private field bid1, private field bid2, private field bid3, public field[2] a, public field[2] b, public field[2] c) -> (field, u32, field[2]){
     field[2] h_bid1 = sha256packed([0,0,0,bid1]);
     field[2] h_bid2 = sha256packed([0,0,0,bid2]);
     field[2] h_bid3 = sha256packed([0,0,0,bid3]);
@@ -26,5 +26,5 @@ def main(private field bid1, private field bid2, private field bid3, public fiel
     assert(highestBid >= bid2);
     assert(highestBid >= bid3);
 
-    return (highestBid, allHash[position]);
+    return (highestBid, position, allHash[position]);
 }
